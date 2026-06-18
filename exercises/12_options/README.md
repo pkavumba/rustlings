@@ -19,3 +19,8 @@ Option types are very common in Rust code, as they have a number of uses:
 - [Option Enum Documentation](https://doc.rust-lang.org/std/option/enum.Option.html)
 - [if let](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html)
 - [while let](https://doc.rust-lang.org/rust-by-example/flow_control/while_let.html)
+
+
+## Expanded practice
+
+This section now includes additional exercises `options4` through `options10` to provide a smoother path from basic usage to more advanced, idiomatic Rust patterns.

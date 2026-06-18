@@ -10,3 +10,8 @@ Smart pointers in Rust often own the data they point to, while references only b
 - [Rc\<T\>, the Reference Counted Smart Pointer](https://doc.rust-lang.org/book/ch15-04-rc.html)
 - [Shared-State Concurrency](https://doc.rust-lang.org/book/ch16-03-shared-state.html)
 - [Cow Documentation](https://doc.rust-lang.org/std/borrow/enum.Cow.html)
+
+
+## Expanded practice
+
+This section now includes additional exercises `smart_pointers5` through `smart_pointers10` to provide a smoother path from basic usage to more advanced, idiomatic Rust patterns.

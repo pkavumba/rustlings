@@ -10,3 +10,8 @@ talking about Vecs.
 ## Further information
 
 - [Storing Keys with Associated Values in Hash Maps](https://doc.rust-lang.org/book/ch08-03-hash-maps.html)
+
+
+## Expanded practice
+
+This section now includes additional exercises `hashmaps4` through `hashmaps8` to provide a smoother path from basic usage to more advanced, idiomatic Rust patterns.

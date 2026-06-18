@@ -17,3 +17,8 @@ Because traits indicate shared behavior between data types, they are useful when
 ## Further information
 
 - [Traits](https://doc.rust-lang.org/book/ch10-02-traits.html)
+
+
+## Expanded practice
+
+This section now includes additional exercises `traits6` through `traits10` to provide a smoother path from basic usage to more advanced, idiomatic Rust patterns.

@@ -6,3 +6,8 @@ This section will teach you about Iterators.
 
 - [Iterator](https://doc.rust-lang.org/book/ch13-02-iterators.html)
 - [Iterator documentation](https://doc.rust-lang.org/stable/std/iter/)
+
+
+## Expanded practice
+
+This section now includes additional exercises `iterators6` through `iterators10` to provide a smoother path from basic usage to more advanced, idiomatic Rust patterns.

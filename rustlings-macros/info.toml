@@ -425,6 +425,73 @@ a `self` parameter.
 Have a look in The Book to find out more about method implementations:
 https://doc.rust-lang.org/book/ch05-03-method-syntax.html"""
 
+[[exercises]]
+name = "structs4"
+dir = "07_structs"
+hint = """
+A struct can own heap-allocated data such as `String`. If local variable names
+match field names, you can use field init shorthand: `Book { title, author }`.
+Read more about field init shorthand in The Book:
+https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand"""
+
+[[exercises]]
+name = "structs5"
+dir = "07_structs"
+hint = """
+Put methods in an `impl Rectangle` block. A constructor such as `new` has no
+`self` parameter, a read-only method usually takes `&self`, and a method that
+mutates the existing value takes `&mut self`.
+Read more about method syntax:
+https://doc.rust-lang.org/book/ch05-03-method-syntax.html"""
+
+[[exercises]]
+name = "structs6"
+dir = "07_structs"
+hint = """
+Derive macros can implement common traits for a struct. Try deriving `Debug`,
+`Clone`, `PartialEq`, and `Default`. Then use struct update syntax with
+`..Self::default()` to keep any fields you don't want to write explicitly.
+Read more about derivable traits:
+https://doc.rust-lang.org/book/appendix-03-derivable-traits.html"""
+
+[[exercises]]
+name = "structs7"
+dir = "07_structs"
+hint = """
+You can destructure structs with patterns such as `let Point { x, y } = point;`.
+When matching through a reference, bindings to fields are references too, so you
+can read nested data without moving it out of the original struct.
+Read more about destructuring structs:
+https://doc.rust-lang.org/book/ch19-03-pattern-syntax.html#destructuring-structs"""
+
+[[exercises]]
+name = "structs8"
+dir = "07_structs"
+hint = """
+A method can take ownership with `self`, modify a local mutable copy, and return
+`Self`. This makes chained builder-style calls possible because each call returns
+the value used by the next call."""
+
+[[exercises]]
+name = "structs9"
+dir = "07_structs"
+hint = """
+Generic structs put a type parameter after the struct name, for example
+`struct Pair<T> { left: T, right: T }`. The matching impl block is `impl<T>
+Pair<T> { ... }`, and methods can move generic fields just like concrete fields.
+Read more about generic data types:
+https://doc.rust-lang.org/book/ch10-01-syntax.html#in-struct-definitions"""
+
+[[exercises]]
+name = "structs10"
+dir = "07_structs"
+hint = """
+A struct that stores references needs lifetime annotations on the struct and on
+its borrowed fields, for example `struct Example<'a> { field: &'a str }`. The
+constructor should accept references with the same lifetime and store them.
+Read more about lifetimes in structs:
+https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html#lifetime-annotations-in-struct-definitions"""
+
 # ENUMS
 
 [[exercises]]
@@ -457,6 +524,74 @@ Then, create a match expression in `process()`.
 
 Note that you need to deconstruct some message variants in the match expression
 to get the variant's values."""
+
+
+[[exercises]]
+name = "enums4"
+dir = "08_enums"
+hint = """
+Match each unit variant explicitly. A `match` expression must cover every
+possible enum variant unless you add a catch-all arm.
+Read more about match control flow:
+https://doc.rust-lang.org/book/ch06-02-match.html"""
+
+[[exercises]]
+name = "enums5"
+dir = "08_enums"
+hint = """
+Each enum variant has its own pattern shape. For struct-like variants, use
+`Shape::Circle { radius }`; for tuple-like variants, use `Shape::Square(side)`.
+Read more about enum values:
+https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html"""
+
+[[exercises]]
+name = "enums6"
+dir = "08_enums"
+hint = """
+Range patterns such as `100..=199` match any value inside an inclusive range.
+Put more specific ranges before the final `_` catch-all arm.
+Read more about multiple patterns and ranges:
+https://doc.rust-lang.org/book/ch19-03-pattern-syntax.html"""
+
+[[exercises]]
+name = "enums7"
+dir = "08_enums"
+hint = """
+`if let Pattern = value { ... }` is a compact way to handle one pattern while
+ignoring all others. Destructure `Command::Print(text)` and push `text` into the
+result vector.
+Read more about concise control flow with `if let`:
+https://doc.rust-lang.org/book/ch06-03-if-let.html"""
+
+[[exercises]]
+name = "enums8"
+dir = "08_enums"
+hint = """
+Enum methods go in an `impl Door` block just like struct methods. For a mutable
+reference to a field inside a pattern, bind the field and dereference it before
+updating, for example `*knocks += 1`.
+Read more about methods:
+https://doc.rust-lang.org/book/ch05-03-method-syntax.html"""
+
+[[exercises]]
+name = "enums9"
+dir = "08_enums"
+hint = """
+Recursive enum variants need indirection such as `Box<T>`. When matching through
+`&self`, recursive calls like `tail.len()` and `tail.sum()` can traverse the
+boxed tail without moving it.
+Read more about recursive types with boxes:
+https://doc.rust-lang.org/book/ch15-01-box.html#enabling-recursive-types-with-boxes"""
+
+[[exercises]]
+name = "enums10"
+dir = "08_enums"
+hint = """
+A generic enum can transform one type parameter while preserving another. Match
+on `self`: apply the function to the `Ok` value, and pass the `Err` value through
+unchanged.
+Read more about generic data types:
+https://doc.rust-lang.org/book/ch10-01-syntax.html"""
 
 # STRINGS
 
@@ -517,6 +652,134 @@ should become
 `string_slice("blue");`
 because "blue" is `&str`, not `String`."""
 
+[[exercises]]
+name = "strings5"
+dir = "09_strings"
+hint = """
+Build an owned `String` from borrowed `&str` input. The `format!` macro is often the simplest way to allocate formatted text.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings6"
+dir = "09_strings"
+hint = """
+Use `push_str` to append a string slice and `push` to append one character. Remember that the function parameter is already mutable.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings7"
+dir = "09_strings"
+hint = """
+`format!` borrows its arguments and returns a new `String`, so the caller can keep using the original strings afterwards.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings8"
+dir = "09_strings"
+hint = """
+Try `trim()`, `to_lowercase()`, and `replace()`. Some methods return borrowed slices while others allocate a new `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings9"
+dir = "09_strings"
+hint = """
+`len()` returns bytes. `chars().count()` counts Unicode scalar values, which can differ for non-ASCII text.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings10"
+dir = "09_strings"
+hint = """
+Find the first whitespace byte index with `find(char::is_whitespace)`, then return a slice of the original input.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings11"
+dir = "09_strings"
+hint = """
+Split on commas, call `trim`, filter empty fields, and collect owned values with `String::from` or `.to_string()`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings12"
+dir = "09_strings"
+hint = """
+Use `split_whitespace`, take each word’s first character, uppercase it, and collect into a `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings13"
+dir = "09_strings"
+hint = """
+Avoid byte slicing for user text. Iterate over `chars()`, `take(count)`, and collect into a new `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings14"
+dir = "09_strings"
+hint = """
+`split_once('=')` returns an `Option`. Trim both sides, reject empty pieces, and convert borrowed slices into owned strings.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings15"
+dir = "09_strings"
+hint = """
+Map over `chars()`. A `match` arm can replace ASCII vowels with `*` and pass all other characters through.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings16"
+dir = "09_strings"
+hint = """
+`split_whitespace` removes leading/trailing whitespace and collapses runs when you join the pieces with one space.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings17"
+dir = "09_strings"
+hint = """
+For each word, uppercase the first character and lowercase the remaining string slice before joining the transformed words.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings18"
+dir = "09_strings"
+hint = """
+`split_whitespace().rev()` gives words in reverse order. Collect them into a vector and `join(" ")`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings19"
+dir = "09_strings"
+hint = """
+Keep a remaining slice of the input. Find `[`, then find the next `]`, push the borrowed slice between them, and continue.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings20"
+dir = "09_strings"
+hint = """
+Chaining `replace` calls is enough for these two known placeholders. Each call returns a new owned `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
 # MODULES
 
 [[exercises]]
@@ -548,6 +811,41 @@ hint = """
 `UNIX_EPOCH` and `SystemTime` are declared in the `std::time` module. Add a
 `use` statement for these two to bring them into scope. You can use nested
 paths to bring these two in using only one line."""
+
+[[exercises]]
+name = "modules4"
+dir = "10_modules"
+hint = """
+Practice modules concept #4: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "modules5"
+dir = "10_modules"
+hint = """
+Practice modules concept #5: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "modules6"
+dir = "10_modules"
+hint = """
+Practice modules concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "modules7"
+dir = "10_modules"
+hint = """
+Practice modules concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "modules8"
+dir = "10_modules"
+hint = """
+Practice modules concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
 
 # HASHMAPS
 
@@ -586,6 +884,41 @@ https://doc.rust-lang.org/book/ch08-03-hash-maps.html#updating-a-value-based-on-
 name = "quiz2"
 dir = "quizzes"
 hint = "The `+` operator can concatenate a `String` with a `&str`."
+
+[[exercises]]
+name = "hashmaps4"
+dir = "11_hashmaps"
+hint = """
+Practice hashmaps concept #4: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "hashmaps5"
+dir = "11_hashmaps"
+hint = """
+Practice hashmaps concept #5: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "hashmaps6"
+dir = "11_hashmaps"
+hint = """
+Practice hashmaps concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "hashmaps7"
+dir = "11_hashmaps"
+hint = """
+Practice hashmaps concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "hashmaps8"
+dir = "11_hashmaps"
+hint = """
+Practice hashmaps concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
 
 # OPTIONS
 
@@ -626,6 +959,55 @@ this be avoided? The compiler shows the correction needed.
 After making the correction as suggested by the compiler, read the related docs
 page:
 https://doc.rust-lang.org/std/keyword.ref.html"""
+
+[[exercises]]
+name = "options4"
+dir = "12_options"
+hint = """
+Practice options concept #4: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "options5"
+dir = "12_options"
+hint = """
+Practice options concept #5: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "options6"
+dir = "12_options"
+hint = """
+Practice options concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "options7"
+dir = "12_options"
+hint = """
+Practice options concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "options8"
+dir = "12_options"
+hint = """
+Practice options concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "options9"
+dir = "12_options"
+hint = """
+Practice options concept #9: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "options10"
+dir = "12_options"
+hint = """
+Practice options concept #10: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
 
 # ERROR HANDLING
 
@@ -741,6 +1123,62 @@ hint = """
 Related section in The Book:
 https://doc.rust-lang.org/book/ch10-01-syntax.html#in-method-definitions"""
 
+[[exercises]]
+name = "generics3"
+dir = "14_generics"
+hint = """
+Practice generics concept #3: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "generics4"
+dir = "14_generics"
+hint = """
+Practice generics concept #4: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "generics5"
+dir = "14_generics"
+hint = """
+Practice generics concept #5: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "generics6"
+dir = "14_generics"
+hint = """
+Practice generics concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "generics7"
+dir = "14_generics"
+hint = """
+Practice generics concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "generics8"
+dir = "14_generics"
+hint = """
+Practice generics concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "generics9"
+dir = "14_generics"
+hint = """
+Practice generics concept #9: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "generics10"
+dir = "14_generics"
+hint = """
+Practice generics concept #10: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
 # TRAITS
 
 [[exercises]]
@@ -809,6 +1247,41 @@ Here is how to specify a trait bound for an implementation block:
 You may need this:
 `use std::fmt::Display;`"""
 
+[[exercises]]
+name = "traits6"
+dir = "15_traits"
+hint = """
+Practice traits concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "traits7"
+dir = "15_traits"
+hint = """
+Practice traits concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "traits8"
+dir = "15_traits"
+hint = """
+Practice traits concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "traits9"
+dir = "15_traits"
+hint = """
+Practice traits concept #9: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "traits10"
+dir = "15_traits"
+hint = """
+Practice traits concept #10: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
 # LIFETIMES
 
 [[exercises]]
@@ -837,6 +1310,55 @@ name = "lifetimes3"
 dir = "16_lifetimes"
 test = false
 hint = """Let the compiler guide you :)"""
+
+[[exercises]]
+name = "lifetimes4"
+dir = "16_lifetimes"
+hint = """
+Practice lifetimes concept #4: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "lifetimes5"
+dir = "16_lifetimes"
+hint = """
+Practice lifetimes concept #5: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "lifetimes6"
+dir = "16_lifetimes"
+hint = """
+Practice lifetimes concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "lifetimes7"
+dir = "16_lifetimes"
+hint = """
+Practice lifetimes concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "lifetimes8"
+dir = "16_lifetimes"
+hint = """
+Practice lifetimes concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "lifetimes9"
+dir = "16_lifetimes"
+hint = """
+Practice lifetimes concept #9: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "lifetimes10"
+dir = "16_lifetimes"
+hint = """
+Practice lifetimes concept #10: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
 
 # TESTS
 
@@ -872,6 +1394,41 @@ To handle that, you need to add a special attribute to the test function.
 
 You can refer to the docs:
 https://doc.rust-lang.org/book/ch11-01-writing-tests.html#checking-for-panics-with-should_panic"""
+
+[[exercises]]
+name = "tests4"
+dir = "17_tests"
+hint = """
+Practice writing assertions for small functions. Complete the TODO inside the test body so the test checks the expected behavior.
+"""
+
+[[exercises]]
+name = "tests5"
+dir = "17_tests"
+hint = """
+Practice writing assertions for small functions. Complete the TODO inside the test body so the test checks the expected behavior.
+"""
+
+[[exercises]]
+name = "tests6"
+dir = "17_tests"
+hint = """
+Practice writing assertions for small functions. Complete the TODO inside the test body so the test checks the expected behavior.
+"""
+
+[[exercises]]
+name = "tests7"
+dir = "17_tests"
+hint = """
+Practice writing assertions for small functions. Complete the TODO inside the test body so the test checks the expected behavior.
+"""
+
+[[exercises]]
+name = "tests8"
+dir = "17_tests"
+hint = """
+Practice writing assertions for small functions. Complete the TODO inside the test body so the test checks the expected behavior.
+"""
 
 # STANDARD LIBRARY TYPES
 
@@ -956,6 +1513,41 @@ The `fold` method can be useful in the `count_collection_iterator` function.
 For a further challenge, consult the documentation for `Iterator` to find
 a different method that could make your code more compact than using `fold`."""
 
+[[exercises]]
+name = "iterators6"
+dir = "18_iterators"
+hint = """
+Practice iterators concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "iterators7"
+dir = "18_iterators"
+hint = """
+Practice iterators concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "iterators8"
+dir = "18_iterators"
+hint = """
+Practice iterators concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "iterators9"
+dir = "18_iterators"
+hint = """
+Practice iterators concept #9: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "iterators10"
+dir = "18_iterators"
+hint = """
+Practice iterators concept #10: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
 # SMART POINTERS
 
 [[exercises]]
@@ -1019,6 +1611,48 @@ called.
 Check out the documentation of the `Cow` type:
 https://doc.rust-lang.org/std/borrow/enum.Cow.html"""
 
+[[exercises]]
+name = "smart_pointers5"
+dir = "19_smart_pointers"
+hint = """
+Practice smart pointers concept #5: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "smart_pointers6"
+dir = "19_smart_pointers"
+hint = """
+Practice smart pointers concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "smart_pointers7"
+dir = "19_smart_pointers"
+hint = """
+Practice smart pointers concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "smart_pointers8"
+dir = "19_smart_pointers"
+hint = """
+Practice smart pointers concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "smart_pointers9"
+dir = "19_smart_pointers"
+hint = """
+Practice smart pointers concept #9: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "smart_pointers10"
+dir = "19_smart_pointers"
+hint = """
+Practice smart pointers concept #10: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
 # THREADS
 
 [[exercises]]
@@ -1074,6 +1708,41 @@ original sending end.
 
 Related section in The Book:
 https://doc.rust-lang.org/book/ch16-02-message-passing.html"""
+
+[[exercises]]
+name = "threads4"
+dir = "20_threads"
+hint = """
+Practice threads concept #4: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "threads5"
+dir = "20_threads"
+hint = """
+Practice threads concept #5: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "threads6"
+dir = "20_threads"
+hint = """
+Practice threads concept #6: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "threads7"
+dir = "20_threads"
+hint = """
+Practice threads concept #7: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
+
+[[exercises]]
+name = "threads8"
+dir = "20_threads"
+hint = """
+Practice threads concept #8: read the exercise comments, complete the TODO, and use the tests to check the expected behavior.
+"""
 
 # MACROS
 
