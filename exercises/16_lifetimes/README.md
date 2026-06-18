@@ -20,3 +20,8 @@ learning to write lifetime annotations.
 
 - [Lifetimes (in Rust By Example)](https://doc.rust-lang.org/stable/rust-by-example/scope/lifetime.html)
 - [Validating References with Lifetimes](https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html)
+
+
+## Expanded practice
+
+This section now includes additional exercises `lifetimes4` through `lifetimes10` to provide a smoother path from basic usage to more advanced, idiomatic Rust patterns.
