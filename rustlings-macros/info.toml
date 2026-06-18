@@ -425,6 +425,73 @@ a `self` parameter.
 Have a look in The Book to find out more about method implementations:
 https://doc.rust-lang.org/book/ch05-03-method-syntax.html"""
 
+[[exercises]]
+name = "structs4"
+dir = "07_structs"
+hint = """
+A struct can own heap-allocated data such as `String`. If local variable names
+match field names, you can use field init shorthand: `Book { title, author }`.
+Read more about field init shorthand in The Book:
+https://doc.rust-lang.org/book/ch05-01-defining-structs.html#using-the-field-init-shorthand"""
+
+[[exercises]]
+name = "structs5"
+dir = "07_structs"
+hint = """
+Put methods in an `impl Rectangle` block. A constructor such as `new` has no
+`self` parameter, a read-only method usually takes `&self`, and a method that
+mutates the existing value takes `&mut self`.
+Read more about method syntax:
+https://doc.rust-lang.org/book/ch05-03-method-syntax.html"""
+
+[[exercises]]
+name = "structs6"
+dir = "07_structs"
+hint = """
+Derive macros can implement common traits for a struct. Try deriving `Debug`,
+`Clone`, `PartialEq`, and `Default`. Then use struct update syntax with
+`..Self::default()` to keep any fields you don't want to write explicitly.
+Read more about derivable traits:
+https://doc.rust-lang.org/book/appendix-03-derivable-traits.html"""
+
+[[exercises]]
+name = "structs7"
+dir = "07_structs"
+hint = """
+You can destructure structs with patterns such as `let Point { x, y } = point;`.
+When matching through a reference, bindings to fields are references too, so you
+can read nested data without moving it out of the original struct.
+Read more about destructuring structs:
+https://doc.rust-lang.org/book/ch19-03-pattern-syntax.html#destructuring-structs"""
+
+[[exercises]]
+name = "structs8"
+dir = "07_structs"
+hint = """
+A method can take ownership with `self`, modify a local mutable copy, and return
+`Self`. This makes chained builder-style calls possible because each call returns
+the value used by the next call."""
+
+[[exercises]]
+name = "structs9"
+dir = "07_structs"
+hint = """
+Generic structs put a type parameter after the struct name, for example
+`struct Pair<T> { left: T, right: T }`. The matching impl block is `impl<T>
+Pair<T> { ... }`, and methods can move generic fields just like concrete fields.
+Read more about generic data types:
+https://doc.rust-lang.org/book/ch10-01-syntax.html#in-struct-definitions"""
+
+[[exercises]]
+name = "structs10"
+dir = "07_structs"
+hint = """
+A struct that stores references needs lifetime annotations on the struct and on
+its borrowed fields, for example `struct Example<'a> { field: &'a str }`. The
+constructor should accept references with the same lifetime and store them.
+Read more about lifetimes in structs:
+https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html#lifetime-annotations-in-struct-definitions"""
+
 # ENUMS
 
 [[exercises]]
