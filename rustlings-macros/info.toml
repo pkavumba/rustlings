@@ -652,6 +652,134 @@ should become
 `string_slice("blue");`
 because "blue" is `&str`, not `String`."""
 
+[[exercises]]
+name = "strings5"
+dir = "09_strings"
+hint = """
+Build an owned `String` from borrowed `&str` input. The `format!` macro is often the simplest way to allocate formatted text.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings6"
+dir = "09_strings"
+hint = """
+Use `push_str` to append a string slice and `push` to append one character. Remember that the function parameter is already mutable.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings7"
+dir = "09_strings"
+hint = """
+`format!` borrows its arguments and returns a new `String`, so the caller can keep using the original strings afterwards.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings8"
+dir = "09_strings"
+hint = """
+Try `trim()`, `to_lowercase()`, and `replace()`. Some methods return borrowed slices while others allocate a new `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings9"
+dir = "09_strings"
+hint = """
+`len()` returns bytes. `chars().count()` counts Unicode scalar values, which can differ for non-ASCII text.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings10"
+dir = "09_strings"
+hint = """
+Find the first whitespace byte index with `find(char::is_whitespace)`, then return a slice of the original input.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings11"
+dir = "09_strings"
+hint = """
+Split on commas, call `trim`, filter empty fields, and collect owned values with `String::from` or `.to_string()`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings12"
+dir = "09_strings"
+hint = """
+Use `split_whitespace`, take each word’s first character, uppercase it, and collect into a `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings13"
+dir = "09_strings"
+hint = """
+Avoid byte slicing for user text. Iterate over `chars()`, `take(count)`, and collect into a new `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings14"
+dir = "09_strings"
+hint = """
+`split_once('=')` returns an `Option`. Trim both sides, reject empty pieces, and convert borrowed slices into owned strings.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings15"
+dir = "09_strings"
+hint = """
+Map over `chars()`. A `match` arm can replace ASCII vowels with `*` and pass all other characters through.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings16"
+dir = "09_strings"
+hint = """
+`split_whitespace` removes leading/trailing whitespace and collapses runs when you join the pieces with one space.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings17"
+dir = "09_strings"
+hint = """
+For each word, uppercase the first character and lowercase the remaining string slice before joining the transformed words.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings18"
+dir = "09_strings"
+hint = """
+`split_whitespace().rev()` gives words in reverse order. Collect them into a vector and `join(" ")`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings19"
+dir = "09_strings"
+hint = """
+Keep a remaining slice of the input. Find `[`, then find the next `]`, push the borrowed slice between them, and continue.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
+[[exercises]]
+name = "strings20"
+dir = "09_strings"
+hint = """
+Chaining `replace` calls is enough for these two known placeholders. Each call returns a new owned `String`.
+Read more about strings:
+https://doc.rust-lang.org/book/ch08-02-strings.html"""
+
 # MODULES
 
 [[exercises]]
