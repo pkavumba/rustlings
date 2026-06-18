@@ -525,6 +525,74 @@ Then, create a match expression in `process()`.
 Note that you need to deconstruct some message variants in the match expression
 to get the variant's values."""
 
+
+[[exercises]]
+name = "enums4"
+dir = "08_enums"
+hint = """
+Match each unit variant explicitly. A `match` expression must cover every
+possible enum variant unless you add a catch-all arm.
+Read more about match control flow:
+https://doc.rust-lang.org/book/ch06-02-match.html"""
+
+[[exercises]]
+name = "enums5"
+dir = "08_enums"
+hint = """
+Each enum variant has its own pattern shape. For struct-like variants, use
+`Shape::Circle { radius }`; for tuple-like variants, use `Shape::Square(side)`.
+Read more about enum values:
+https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html"""
+
+[[exercises]]
+name = "enums6"
+dir = "08_enums"
+hint = """
+Range patterns such as `100..=199` match any value inside an inclusive range.
+Put more specific ranges before the final `_` catch-all arm.
+Read more about multiple patterns and ranges:
+https://doc.rust-lang.org/book/ch19-03-pattern-syntax.html"""
+
+[[exercises]]
+name = "enums7"
+dir = "08_enums"
+hint = """
+`if let Pattern = value { ... }` is a compact way to handle one pattern while
+ignoring all others. Destructure `Command::Print(text)` and push `text` into the
+result vector.
+Read more about concise control flow with `if let`:
+https://doc.rust-lang.org/book/ch06-03-if-let.html"""
+
+[[exercises]]
+name = "enums8"
+dir = "08_enums"
+hint = """
+Enum methods go in an `impl Door` block just like struct methods. For a mutable
+reference to a field inside a pattern, bind the field and dereference it before
+updating, for example `*knocks += 1`.
+Read more about methods:
+https://doc.rust-lang.org/book/ch05-03-method-syntax.html"""
+
+[[exercises]]
+name = "enums9"
+dir = "08_enums"
+hint = """
+Recursive enum variants need indirection such as `Box<T>`. When matching through
+`&self`, recursive calls like `tail.len()` and `tail.sum()` can traverse the
+boxed tail without moving it.
+Read more about recursive types with boxes:
+https://doc.rust-lang.org/book/ch15-01-box.html#enabling-recursive-types-with-boxes"""
+
+[[exercises]]
+name = "enums10"
+dir = "08_enums"
+hint = """
+A generic enum can transform one type parameter while preserving another. Match
+on `self`: apply the function to the `Ok` value, and pass the `Err` value through
+unchanged.
+Read more about generic data types:
+https://doc.rust-lang.org/book/ch10-01-syntax.html"""
+
 # STRINGS
 
 [[exercises]]
