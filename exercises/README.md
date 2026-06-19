@@ -25,3 +25,4 @@
 | macros                 | §20.5               |
 | clippy                 | Appendix D          |
 | conversions            | n/a                 |
+| projects               | n/a                 |
