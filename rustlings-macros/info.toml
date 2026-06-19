@@ -1880,3 +1880,48 @@ name = "conversions5"
 dir = "23_conversions"
 hint = """
 Add `AsRef<str>` or `AsMut<u32>` as a trait bound to the functions."""
+
+# PROJECTS
+
+[[exercises]]
+name = "projects1"
+dir = "24_projects"
+hint = """
+`serde_json::from_str` can deserialize JSON into any type that implements
+`serde::Deserialize`. You can derive that trait on structs whose fields also
+implement `Deserialize`.
+
+Read more at https://serde.rs/derive.html"""
+
+[[exercises]]
+name = "projects2"
+dir = "24_projects"
+hint = """
+Count completed tasks with iterators, collect tags into a `BTreeSet` to get
+unique sorted values, then convert the set back into a `Vec<String>`.
+
+`serde_json::to_string` serializes any value that implements `Serialize`."""
+
+[[exercises]]
+name = "projects3"
+dir = "24_projects"
+hint = """
+The outer CLI struct needs `#[command(subcommand)]` on its command field. The
+command enum needs to derive `Subcommand`.
+
+See the clap derive tutorial: https://docs.rs/clap/latest/clap/_derive/_tutorial/"""
+
+[[exercises]]
+name = "projects4"
+dir = "24_projects"
+hint = """
+Add a `Json(#[from] serde_json::Error)` variant to the error enum and give it an
+`#[error("...")]` message. The `#[from]` attribute lets the `?` operator convert
+`serde_json::Error` into your error type."""
+
+[[exercises]]
+name = "projects5"
+dir = "24_projects"
+hint = """
+Check `completed` first. Then compare `task.due` with `today` using `<` and
+`==`. `chrono::NaiveDate` implements the comparison traits for calendar dates."""
