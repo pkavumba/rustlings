@@ -1925,3 +1925,43 @@ dir = "24_projects"
 hint = """
 Check `completed` first. Then compare `task.due` with `today` using `<` and
 `==`. `chrono::NaiveDate` implements the comparison traits for calendar dates."""
+
+# FILES
+
+[[exercises]]
+name = "files1"
+dir = "25_files"
+hint = """
+`std::fs::read_to_string` reads a whole UTF-8 file into a `String`.
+It already returns an `io::Result<String>`, which matches the function's return
+type."""
+
+[[exercises]]
+name = "files2"
+dir = "25_files"
+hint = """
+`std::fs::write(path, contents)` writes the whole contents to a file, creating
+the file if it is missing and replacing its contents if it already exists."""
+
+[[exercises]]
+name = "files3"
+dir = "25_files"
+hint = """
+Use `OpenOptions::new().append(true).create(true).open(path)?`.
+
+To write the line, bring `std::io::Write` into scope and use `writeln!`."""
+
+[[exercises]]
+name = "files4"
+dir = "25_files"
+hint = """
+`Path::join` builds paths without hard-coding path separators.
+
+`std::fs::create_dir_all` creates a directory and any missing parents."""
+
+[[exercises]]
+name = "files5"
+dir = "25_files"
+hint = """
+`reader.lines()` yields `io::Result<String>` values. Use `?` to get the string
+for each line, then call `trim().is_empty()` to decide whether to count it."""
