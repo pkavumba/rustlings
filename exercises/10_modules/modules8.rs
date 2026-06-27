@@ -7,4 +7,10 @@ mod api {
 fn main() {}
 
 #[cfg(test)]
-mod tests { use super::*; #[test] fn module_item_is_reachable() { assert_eq!(api::parent::child::ping(), "pong"); } }
+mod tests {
+    use super::*;
+    #[test]
+    fn module_item_is_reachable() {
+        assert_eq!(api::parent::child::ping(), "pong");
+    }
+}

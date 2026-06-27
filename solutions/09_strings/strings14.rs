@@ -22,7 +22,10 @@ mod tests {
 
     #[test]
     fn parses_key_value_pairs() {
-        assert_eq!(parse_assignment(" theme = dark "), Some(("theme".into(), "dark".into())));
+        assert_eq!(
+            parse_assignment(" theme = dark "),
+            Some(("theme".into(), "dark".into()))
+        );
         assert_eq!(parse_assignment("missing"), None);
         assert_eq!(parse_assignment("empty=   "), None);
     }

@@ -28,6 +28,9 @@ mod tests {
 
     #[test]
     fn borrows_tags_from_input() {
-        assert_eq!(bracketed_tags("[todo] write [rust] code [oops"), ["todo", "rust"]);
+        assert_eq!(
+            bracketed_tags("[todo] write [rust] code [oops"),
+            ["todo", "rust"]
+        );
     }
 }

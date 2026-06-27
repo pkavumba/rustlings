@@ -16,6 +16,9 @@ mod tests {
 
     #[test]
     fn mutates_string_in_place() {
-        assert_eq!(add_signature(String::from("Keep learning")), "Keep learning\n-- 🦀");
+        assert_eq!(
+            add_signature(String::from("Keep learning")),
+            "Keep learning\n-- 🦀"
+        );
     }
 }

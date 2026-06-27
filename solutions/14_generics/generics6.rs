@@ -11,4 +11,11 @@ where
 fn main() {}
 
 #[cfg(test)]
-mod tests { use super::*; #[test] fn formats_display_values() { assert_eq!(surround(10, '[', ']'), "[10]"); assert_eq!(surround("hi", '<', '>'), "<hi>"); } }
+mod tests {
+    use super::*;
+    #[test]
+    fn formats_display_values() {
+        assert_eq!(surround(10, '[', ']'), "[10]");
+        assert_eq!(surround("hi", '<', '>'), "<hi>");
+    }
+}

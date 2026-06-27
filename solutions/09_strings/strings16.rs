@@ -15,6 +15,9 @@ mod tests {
 
     #[test]
     fn collapses_whitespace() {
-        assert_eq!(normalize_whitespace("  Rust\tstrings\nrock  "), "Rust strings rock");
+        assert_eq!(
+            normalize_whitespace("  Rust\tstrings\nrock  "),
+            "Rust strings rock"
+        );
     }
 }

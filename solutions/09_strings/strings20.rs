@@ -21,6 +21,9 @@ mod tests {
             render_template("Hi {name}, keep learning {language}!", "Ferris", "Rust"),
             "Hi Ferris, keep learning Rust!",
         );
-        assert_eq!(render_template("{name} + {name}", "crab", "Rust"), "crab + crab");
+        assert_eq!(
+            render_template("{name} + {name}", "crab", "Rust"),
+            "crab + crab"
+        );
     }
 }

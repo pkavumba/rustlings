@@ -9,7 +9,11 @@ struct Book {
 }
 
 fn build_book(title: String, author: String, pages: u16) -> Book {
-    Book { title, author, pages }
+    Book {
+        title,
+        author,
+        pages,
+    }
 }
 
 fn main() {
@@ -22,7 +26,11 @@ mod tests {
 
     #[test]
     fn stores_owned_book_data() {
-        let book = build_book(String::from("The Rust Book"), String::from("Rust Team"), 550);
+        let book = build_book(
+            String::from("The Rust Book"),
+            String::from("Rust Team"),
+            550,
+        );
 
         assert_eq!(book.title, "The Rust Book");
         assert_eq!(book.author, "Rust Team");

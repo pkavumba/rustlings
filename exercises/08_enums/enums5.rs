@@ -28,7 +28,13 @@ mod tests {
     #[test]
     fn destructures_data_variants() {
         close_enough(area(Shape::Circle { radius: 2.0 }), 12.566_370_614_359_172);
-        close_enough(area(Shape::Rectangle { width: 3.0, height: 4.0 }), 12.0);
+        close_enough(
+            area(Shape::Rectangle {
+                width: 3.0,
+                height: 4.0,
+            }),
+            12.0,
+        );
         close_enough(area(Shape::Square(5.0)), 25.0);
     }
 }

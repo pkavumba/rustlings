@@ -15,6 +15,9 @@ mod tests {
 
     #[test]
     fn normalizes_for_urls() {
-        assert_eq!(clean_slug("  Rust Strings Are Fun  "), "rust-strings-are-fun");
+        assert_eq!(
+            clean_slug("  Rust Strings Are Fun  "),
+            "rust-strings-are-fun"
+        );
     }
 }

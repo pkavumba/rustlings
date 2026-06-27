@@ -7,4 +7,10 @@ mod api {
 fn main() {}
 
 #[cfg(test)]
-mod tests { use super::*; #[test] fn module_item_is_reachable() { assert!(api::hidden()); } }
+mod tests {
+    use super::*;
+    #[test]
+    fn module_item_is_reachable() {
+        assert!(api::hidden());
+    }
+}

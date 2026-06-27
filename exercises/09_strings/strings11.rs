@@ -16,6 +16,9 @@ mod tests {
 
     #[test]
     fn parses_trimmed_fields() {
-        assert_eq!(parse_csv_line("  red, green,, blue  "), ["red", "green", "blue"]);
+        assert_eq!(
+            parse_csv_line("  red, green,, blue  "),
+            ["red", "green", "blue"]
+        );
     }
 }
